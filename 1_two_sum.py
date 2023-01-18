@@ -27,7 +27,6 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-
         hashMap = {}
 
         for i in range(len(nums)):
