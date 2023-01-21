@@ -18,7 +18,7 @@ Output: false
 
 """
 
-# My solution rutime O(nm) n = length s, m = length t
+# My solution runtime Time complexity O(nm), n = length s, m = length t
 
 class Solution(object):
     def isSubsequence(self, s, t):
@@ -29,22 +29,23 @@ class Solution(object):
         """
 
         # initialize the 2d table
-
-        T = [[0 for x in range(len(t))] for y in range(len(s))]
+        m = len(t)
+        n = len(s)
+        T = [[0 for x in range(m)] for y in range(n)]
 
         # base case
-        if len(s) == 0:
+        if n == 0:
             return True
-        if len(t) == 0:
+        if m == 0:
             return False
 
-        for i in range(0, len(s)):
-            for j in range(0, len(t)):
+        for i in range(0, n):
+            for j in range(0, m):
                 if s[i] == t[j]:
                     T[i][j] = 1 + T[i - 1][j - 1]
                 else:
                     T[i][j] = max(T[i - 1][j], T[i][j - 1])
 
-        if T[len(s) - 1][len(t) - 1] == len(s):
+        if T[n - 1][m - 1] == n:
             return True
         return False
