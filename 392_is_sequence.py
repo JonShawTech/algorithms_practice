@@ -28,8 +28,11 @@ class Solution(object):
         :rtype: bool
         """
 
+        # initialize the 2d table
+
         T = [[0 for x in range(len(t))] for y in range(len(s))]
 
+        # base case
         if len(s) == 0:
             return True
         if len(t) == 0:
