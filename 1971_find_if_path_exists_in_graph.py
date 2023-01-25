@@ -59,19 +59,14 @@ class Solution(object):
         visited = [False] * n
 
         def explore(node):
-
             visited[node] = True
-            if node == destination:
-                return True
 
             for v in adj_list[node]:
                 if visited[v] == False:
-                    if explore(v):
-                        return True
-            return False
+                    explore(v)
 
         explore(source)
-
         if visited[destination]:
             return True
+
         return False
