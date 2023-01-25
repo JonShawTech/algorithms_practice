@@ -60,11 +60,9 @@ class Solution(object):
 
         def explore(node):
 
+            visited[node] = True
             if node == destination:
                 return True
-
-            visited[node] = True
-            # print(visited)
 
             for v in adj_list[node]:
                 if visited[v] == False:
@@ -72,6 +70,8 @@ class Solution(object):
                         return True
             return False
 
-        if explore(source):
+        explore(source)
+
+        if visited[destination]:
             return True
         return False
